@@ -12,6 +12,14 @@ public interface HelloService {
     static private void prepareMessage() {
     }
 
+    static HelloService of (String args) {
+        if (args.equals("ko")) {
+            return new KoreanHelloService();
+        } else {
+            return new EnglishHelloService();
+        }
+    }
+
     static String hi1() {
         prepareMessage();
         return "hi";
